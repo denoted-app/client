@@ -1,0 +1,219 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap');
+
+$fa-font-path: '~@fortawesome/fontawesome-free/webfonts';
+@import '~@fortawesome/fontawesome-free/scss/fontawesome';
+@import '~@fortawesome/fontawesome-free/scss/brands';
+@import '~@fortawesome/fontawesome-free/scss/solid';
+@import '~@fortawesome/fontawesome-free/scss/regular';
+
+@import './tailwind.generated.css';
+
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+input {
+  outline: 0;
+}
+
+button {
+  @apply transition;
+  @apply duration-200;
+  @apply ease-in-out;
+}
+
+.notes {
+  min-width: 250px;
+}
+
+.sidebar {
+  min-width: 220px;
+
+  &-navigation {
+    font-size: 14px;
+  }
+
+  .logo {
+    width: 140px;
+    margin-bottom: 25px;
+  }
+}
+
+.notes {
+  &-list {
+    height: calc(100vh - 120px);
+    overflow: hidden scroll;
+    scrollbar-color: #bebebe #f1f1f1;
+    scrollbar-width: thin;
+
+    &::-webkit-scrollbar {
+      width: 6px;
+      &-track {
+        background: #f1f1f1;
+      }
+      &-thumb {
+        background: #bebebe;
+        border-radius: 10px;
+
+        &:hover {
+          background: #a8a8a8;
+        }
+      }
+    }
+
+    .note {
+      min-height: 80px;
+      display: flex;
+      flex-direction: column;
+      outline: 0;
+    }
+  }
+}
+
+.tags {
+  .tag {
+    margin-right: 5px;
+
+    .close {
+      margin-left: 5px;
+    }
+
+    &:last-of-type {
+      margin-right: 0;
+    }
+
+    &:hover {
+      .close {
+        margin-left: 5px;
+      }
+    }
+
+    &::before {
+      content: '#';
+    }
+  }
+}
+
+.editor {
+  &-title {
+    display: inline-block;
+    font-weight: bold;
+    font-size: 20px;
+    margin: 20px 0 10px 0;
+  }
+
+  &-list {
+    padding-left: 10px;
+    font-size: 20px;
+    line-height: 10px;
+  }
+
+  &-hr {
+    display: block;
+    text-align: center;
+    border-bottom: 2px solid #ddd;
+  }
+
+  &-blockquote {
+    display: inline-block;
+    border-left: 2px solid #ddd;
+    padding-left: 10px;
+    color: #aaa;
+    font-style: italic;
+  }
+
+  &-code {
+    font-family: monospace;
+    background-color: #eee;
+    padding: 3px;
+  }
+
+  .tray {
+    display: flex;
+
+    .action-buttons {
+      display: flex;
+      flex-direction: row-reverse;
+      button {
+        margin-right: 10px;
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+}
+
+.ck-editor__editable {
+  min-height: 350px !important;
+  ul {
+    list-style-type: disc;
+    padding-left: 20px;
+  }
+  ol {
+    list-style-type: decimal;
+    padding-left: 20px;
+  }
+}
+
+.tags-container {
+  .tag {
+    &:hover {
+      @apply shadow-none;
+    }
+  }
+  input {
+    width: 70%;
+  }
+}
+
+.saving {
+  -webkit-animation: fade-in 1s cubic-bezier(0.165, 0.84, 0.44, 1) both;
+  animation: fade-in 1s cubic-bezier(0.165, 0.84, 0.44, 1) both;
+  &::after {
+    content: 'Saving...';
+  }
+}
+
+.saved {
+  -webkit-animation: fade-out 2s cubic-bezier(0.755, 0.05, 0.855, 0.06) both;
+  animation: fade-out 2s cubic-bezier(0.755, 0.05, 0.855, 0.06) both;
+  &::after {
+    content: 'Saved!';
+  }
+}
+
+@-webkit-keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fade-out {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
