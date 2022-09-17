@@ -24,7 +24,7 @@ const Notes = ({
 
   return (
     <div className='notes max-w-md flex flex-col bg-gray-100 border-solid border-r border-gray-300'>
-      <div className='p-4 border-b border-gray-300'>
+      <div className='p-4 border-b border-gray-300 hidden'>
         <div className='pt-1'>
           <h5 className='text-gray-500 uppercase tracking-wide text-sm lg:text-xs'>
             <input
