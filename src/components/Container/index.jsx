@@ -7,6 +7,8 @@ import Sidebar from '../Sidebar';
 import Notes from '../Notes';
 import Tag from '../Tag';
 
+import { DEFAULT_PAGE } from '../../constants';
+
 const Container = () => {
   const [notes, setNotes] = useState([]);
   const [title, setTitle] = useState('');
@@ -14,6 +16,7 @@ const Container = () => {
   const [tags, setTags] = useState([]);
   const [activeNoteId, setActiveNoteId] = useState(null);
   const [isSaving, setIsSaving] = useState(false);
+  const [activePage, setActivePage] = useState(DEFAULT_PAGE);
 
   const cleanInputFields = () => {
     setTitle('');
@@ -124,7 +127,7 @@ const Container = () => {
         <div className='form-group flex flex-col mb-4 border border-gray-300'>
           <input
             type='text'
-            type='title'
+            id='title'
             className='form-control px-2 py-3'
             placeholder='Title...'
             onChange={(e) => setTitle(e.target.value)}
@@ -160,9 +163,8 @@ const Container = () => {
                 ))}
             </div>
             <input
-              id='tags'
               type='text'
-              type='tags'
+              id='tags'
               className='form-control text-sm px-2'
               placeholder='Add a new tag here'
               onKeyUp={handleTagsChange}
