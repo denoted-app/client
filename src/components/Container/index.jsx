@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useQuery } from '@apollo/client';
 import CKEditor from '@ckeditor/ckeditor5-react';
 import InlineEditor from '@ckeditor/ckeditor5-build-inline';
 import axios from 'axios';
@@ -8,6 +9,9 @@ import Notes from '../Notes';
 import Tag from '../Tag';
 
 import { DEFAULT_PAGE } from '../../constants';
+
+import { GET_NOTES } from '../../queries/getNotes';
+
 
 const Container = () => {
   const [notes, setNotes] = useState([]);
@@ -93,6 +97,7 @@ const Container = () => {
   const showNote = (e, id) => {
     e.preventDefault();
     const note = notes.filter((n) => n.id === id)[0];
+
     setTitle(note.title);
     setBody(note.body);
     setTags(note.tags);
@@ -101,6 +106,7 @@ const Container = () => {
 
   const findAndUpdateNote = (id) => {
     let tempNotes = notes;
+
     tempNotes.map((t) => {
       if (t.id === id) {
         t.title = title;
@@ -108,6 +114,7 @@ const Container = () => {
         t.tags = tags;
       }
     });
+
     setNotes(tempNotes);
   };
 

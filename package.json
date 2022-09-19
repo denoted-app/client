@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@apollo/client": "^3.6.9",
     "@ckeditor/ckeditor5-build-classic": "^20.0.0",
     "@ckeditor/ckeditor5-build-inline": "^20.0.0",
     "@ckeditor/ckeditor5-react": "^2.1.0",
@@ -12,7 +13,7 @@
     "@testing-library/user-event": "^7.1.2",
     "axios": "^0.19.2",
     "babel-plugin-react-css-modules": "^5.2.6",
-    "dotenv": "^16.0.2",
+    "graphql": "^16.6.0",
     "node-sass": "^4.14.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
